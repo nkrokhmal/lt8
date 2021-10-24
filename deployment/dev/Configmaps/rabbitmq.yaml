@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq
+  labels:
+    app: rabbitmq
+    tier: rabbitmq
+data:
+  RABBITMQ_HOST: rabbitmq
+  RABBITMQ_VHOST: mq
+  RABBITMQ_USERNAME: user
+  RABBITMQ_PASSWORD: admin123
+  RABBITMQ_PORT: "5672"
+  RABBITMQ_QUEUE_AUDIO_NAME: audio
+  RABBITMQ_QUEUE_VIDEO_NAME: video
+  RABBITMQ_QUEUE_STT_NAME: stt
+

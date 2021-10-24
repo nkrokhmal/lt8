@@ -1,0 +1,23 @@
+@import "~styles/_common";
+
+.layouts_card {
+  position: relative;
+
+  .layouts_card_title {
+    color: $black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: rem(16);
+  }
+
+  .layouts_card_subtitle {    
+    line-height: 1.7;
+    color: #c0bdd0;
+  }
+
+  .layouts_card_action {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+}

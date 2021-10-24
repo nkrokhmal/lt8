@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sttservice
+  labels:
+    app: sttservice
+spec:
+  type: NodePort
+  ports:
+  - port: 55557
+  selector:
+    app: sttservice

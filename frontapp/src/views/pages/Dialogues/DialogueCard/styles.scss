@@ -1,0 +1,296 @@
+@import "~styles/common";
+
+.itemBlock {
+  display: flex;
+  width: 100%;
+  margin-bottom: 8px;
+  align-items: center;
+
+  .itemTitle {
+    font-size: 80%;
+    font-weight: 400;
+    line-height: 1.2;
+    flex-grow: 1;
+  }
+
+  .itemValue {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+}
+
+.small {
+  display: flex;
+  flex-direction: column;
+  font-size: 80%;
+  font-weight: 400;
+  text-align: center;
+}
+
+.statisticBlock {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+
+  .statisticTitle {
+    font-size: 80%;
+    line-height: 1.2;
+    margin-right: 4px;
+  }
+
+  .statisticValue {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.doughnutWrapper {
+  text-align: center;
+  .doughnutValue {
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    font-size: 32px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+  }
+  .doughnutBlock {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.progressLine {
+  margin-bottom: 8px;
+}
+
+.emotionMap {
+  margin-bottom: 12px;
+
+  .emotionMapTitle {
+    font-size: 80%;
+    margin-bottom: 8px;
+  }
+}
+
+.messageWrapper {
+  background-color: rgb(247, 248, 250);
+  border-radius: 10px;
+  padding: 0 16px;
+  margin-bottom: 10px;
+}
+
+.messageWrapper.is-client .ant-comment-avatar {
+  position: absolute;
+  right: 0;
+}
+
+.messageWrapper.is-client .ant-comment-inner {
+  padding-right: 44px;
+  text-align: right;
+}
+
+.salesStages {
+  .ant-steps-item-finish {
+    .ant-steps-item-tail::after {
+      background-color: $success !important;
+    }
+
+    .ant-steps-item-icon {
+      border-color: $success;
+
+      .ant-steps-icon {
+        color: $success;
+      }
+    }
+  }
+}
+
+@import "~styles/common";
+
+.pages_satisfaction_dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.pages_satisfaction_gaugesBlock {
+  display: flex;
+}
+
+.pages_satisfaction_emotions {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+
+  .pages_satisfaction_dialoguesGauges {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pages_satisfaction_pieCharts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  & > * {
+    margin-top: rem(20);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.pages_satisfaction_dialoguesPanel {
+  margin-left: rem(40);
+  flex-grow: 1;
+  overflow: hidden;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.pages_satisfaction_dialogues {
+  display: flex;
+  flex-direction: column;
+
+  .pages_satisfaction_dialoguesGauges {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .pages_satisfaction_dialoguesGraph {
+    margin-top: rem(10);
+
+    &.__lite {
+      .layouts_chartLine_graph {
+        height: 300px;
+      }
+    }
+
+    &.__full {
+      .layouts_chartLine_graph {
+        height: 250px;
+      }
+    }
+  }
+}
+
+.pages_satisfaction_pieChartsPanel {
+  &.__lite {
+    width: 100%;
+    margin-top: rem(20);
+  }
+
+  &.__full {
+    width: 100%;
+    margin-top: rem(40);
+  }
+}
+
+.pages_satisfaction_pieCharts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .layouts_panel_title {
+    text-align: center;
+  }
+}
+
+.pages_satisfaction_table {
+  margin-top: rem(40);
+}
+
+.pages_satisfaction_pieChartsPanel.__full {
+  margin-top: 0px !important;
+}
+
+.label_height {
+  height: 0px;
+}
+
+.label_height_twolines {
+  height: 50px;
+}
+
+.text_info {
+  color: #003366;
+}
+
+.text_primary {
+  color: #34495e !important;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.aligned_text {
+  text-align: center;
+}
+
+.m_l {
+  margin-left: 10px;
+}
+.statistic_option_position {
+  text-align: right;
+  margin-top: 16px;
+}
+
+.avatar_width {
+  max-width: 69px;
+}
+
+.p_xs {
+  padding: 10px!important
+}
+
+@media (max-width: $xl-max-width) {
+  .pages_satisfaction_dashboard {
+    flex-direction: column;
+  }
+
+  .pages_satisfaction_dialoguesPanel {
+    margin-top: rem(40);
+    margin-left: 0;
+  }
+
+  .pages_satisfaction_dialoguesGraph {
+    margin-top: rem(40);
+  }
+
+  .pages_satisfaction_pieCharts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: $sm-max-width) {
+  .pages_satisfaction_dialoguesGauges {
+    display: grid;
+    grid-template-columns: 1fr !important;
+
+    & > * {
+      margin-top: rem(20);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .pages_satisfaction_pieCharts {
+    grid-template-columns: 1fr !important;
+  }
+}

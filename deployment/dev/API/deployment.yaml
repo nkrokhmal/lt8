@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: nkrokhmal/lkapi:v1
+        envFrom:
+        - configMapRef:
+            name: rabbitmq
+        - configMapRef:
+            name: postgres
+        - configMapRef:
+            name: sftp
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: regcred
+          

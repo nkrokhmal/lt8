@@ -1,0 +1,6 @@
+psycopg2
+tenacity
+typing
+pika
+pysftp
+requests

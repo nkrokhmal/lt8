@@ -1,0 +1,64 @@
+// ============================================================================
+// Colors
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$colorBackground: $white !default;
+$colorShadow: $gray-500 !default;
+
+$colorText: #333 !default;
+$colorTextLight: #fafafa !default;
+
+$colorPrimary: #555e6f !default;
+//$colorPrimary: #c02028 !default;
+//$colorPrimary: #233A69 !default;
+$colorSecondary: #767676 !default;
+
+//$colorLink: #4183c4 !default;
+$colorLink: $colorPrimary !default;
+$colorLinkHover: darken($colorLink, 20%);
+
+$colorTextMuted: #aaa !default;
+$colorBackgroundMuted: #eee !default;
+
+$colorSuccess: #7FB069 !default;
+$colorWarning: #E6AA68 !default;
+$colorError: #E83151 !default;
+
+$colorBorder: transparentize(#000, 0.8) !default;
+
+$colorLightenAmount: 10% !default;
+$colorDarkenAmount: 10% !default;
+$colorDisabledAmount: 40% !default;
+
+$scheduleDayFont: $white;
+$scheduleDayBack: $colorWarning;
+$scheduleWeekend: $gray-500;
+$scheduleTime: $gray-600;
+
+// ============================================================================
+// Parameters
+
+$transitionDuration: 200ms !default;
+$transitionDurationMedium: 700ms !default;
+$transitionDurationLong: 1200ms !default;
+
+$animationFunction: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+$animation: $transitionDuration $animationFunction;
+$animationMedium: $transitionDurationMedium $animationFunction;
+$animationLong: $transitionDurationLong $animationFunction;
+
+$borderRadius: 4px !default;
+
+$galleryImageSize: 200px;

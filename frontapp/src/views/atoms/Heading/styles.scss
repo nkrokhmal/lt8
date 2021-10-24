@@ -1,0 +1,9 @@
+@import "~styles/common";
+
+.font_extra_bold {
+    font-weight: 700
+}
+
+.indicators-grid .font_extra_bold {
+    color: $text-darken-more;
+}

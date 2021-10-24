@@ -1,0 +1,59 @@
+@import "~styles/common";
+
+
+.widgets_login {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  align-items: center;
+  overflow:hidden;
+
+  @media (max-width: $sm-max-width) {
+    width: 100vw;
+  }
+
+  @media (min-width: $sm-min-width) {
+    width: rem(500);
+    margin: 0 auto 0 auto;
+  }
+}
+
+.widgets_login_form {
+  width: 100%;
+  padding: rem(50) rem(40) rem(20);
+  background-color: $white;
+  position: relative;
+  flex-grow: 1;
+
+  @media (max-width: $sm-max-width) {
+    border-radius: 0;
+  }
+
+  @media (min-width: $sm-min-width) {
+    border-radius: 10px;
+  }
+
+  .widgets_login_logo {
+    margin-bottom: rem(20);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (max-width: $sm-max-width) {
+      height: 40px;
+      background-image: url('/img/logo.svg');
+    }
+
+    @media (min-width: $sm-min-width) {
+      height: 160px;
+      background-image: url('/img/logo_quad.svg');
+    }
+  }
+
+  .widgets_login_formTitle {
+    line-height: 1.5;
+    font-weight: 700;
+    font-size: rem(12);
+    color: $text-darken-more;
+    text-transform: uppercase;
+  }
+}

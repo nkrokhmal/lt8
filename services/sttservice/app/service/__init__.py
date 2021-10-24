@@ -1,0 +1,1 @@
+from .sttservice import SpeechToTextClient

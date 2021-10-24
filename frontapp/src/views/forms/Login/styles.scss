@@ -1,0 +1,65 @@
+@import "~styles/common";
+
+
+.forms_login {
+  .forms_login_input_icon {
+    color: rgba(0, 0, 0, .25);
+  }
+
+  .forms_login_link_forgot {
+    line-height: 36px;
+  }
+}
+
+.forms_login_error {
+  &:before {
+    content: '*';
+    margin-right: 8px;
+  }
+
+  color: #ff4d4f;
+}
+
+.pull_right {
+  float: right;
+}
+
+.forms_login_rememberAndForgot {
+  display: flex;
+
+  @media (max-width: $sm-max-width) {
+    flex-direction: column;
+  }
+
+  @media (min-width: $sm-min-width) {
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+
+.forms_login_register {
+  display: inline-block;
+  text-align: justify;
+}
+
+.forms_login_submitAndRegister {
+  display: flex;
+
+  @media (max-width: $sm-max-width) {
+    flex-direction: column;
+
+    & > * {
+      margin-top: rem(10);
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media (min-width: $sm-min-width) {
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}

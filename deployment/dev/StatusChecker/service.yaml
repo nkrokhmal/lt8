@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: statuschecker
+  labels:
+    app: statuschecker
+spec:
+  type: NodePort
+  ports:
+  - port: 55558
+  selector:
+    app: statuschecker

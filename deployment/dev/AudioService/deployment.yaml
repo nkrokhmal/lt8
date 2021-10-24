@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: audioservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: audioservice
+    spec:
+      containers:
+      - name: audioservice
+        image: nkrokhmal/audioservice:lk
+        imagePullPolicy: "Always"
+        env:
+        - name: CHUNK_TIME
+          value: "360"        
+        envFrom:
+        - configMapRef:
+            name: rabbitmq
+        - configMapRef:
+            name: postgres
+        - configMapRef:
+            name: sftp
+        ports:
+        - containerPort: 55556
+      imagePullSecrets:
+      - name: regcred
+          

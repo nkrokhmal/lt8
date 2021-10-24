@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "SF Display";
+  src: url("/assets/fonts/SFUIDisplay-Light.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/assets/fonts/FiraCode-Regular.ttf") format("ttf");
+}
+
+$fontSansSerif: "SF Display", "Helvetica Neue", Arial, Helvetica, sans-serif;
+$fontMono: "Fira Code", monospace;
+
+$fontSizeXS:    10px;
+$fontSizeS:     12px;
+$fontSizeM:     15px;
+$fontSizeL:     18px;
+$fontSizeXL:    24px;
+$fontSizeXXL:   32px;
+$fontSizeXXXL:  52px;
+

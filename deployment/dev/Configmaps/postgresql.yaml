@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+    tier: postgres
+data:
+  PSQL_DB: test_db
+  PSQL_USERNAME: test_user
+  PSQL_PASSWORD: test_password
+  PSQL_HOST: storage-lt.northeurope.cloudapp.azure.com

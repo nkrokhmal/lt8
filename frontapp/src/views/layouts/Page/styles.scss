@@ -1,0 +1,25 @@
+@import "~styles/_common";
+
+
+.layouts_page {
+
+  &.layouts_page_login {
+    max-height: 100vh;
+
+    & > .ant-layout {
+      min-height: auto;
+    }
+
+    .layouts_page_login_content {
+      position: relative;
+      flex-grow: 1;
+    }
+  }
+
+  &.layouts_page_main {
+    .layouts_page_main_content {
+      position: relative;
+      flex-grow: 1;
+    }
+  }
+}

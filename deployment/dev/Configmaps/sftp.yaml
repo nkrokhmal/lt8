@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sftp
+  labels:
+    app: sftp
+    tier: sftp
+data:
+  SFTP_HOST: storage-lt.northeurope.cloudapp.azure.com
+  SFTP_USERNAME: nkrokhmal
+  SFTP_PASSWORD: kloppolk_2018
+  SFTP_BASE_PATH: /home/nkrokhmal/storage
+  SFTP_DOWNLOAD_PATH: data 
+  SFTP_AUDIO: audios
+  SFTP_VIDEOS: videos
+

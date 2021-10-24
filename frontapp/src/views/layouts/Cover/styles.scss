@@ -1,0 +1,132 @@
+@import "~styles/_common";
+
+
+.layouts_cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+
+  &.__pending {
+    .layouts_cover_wrap {
+      display: flex;
+    }
+
+    .layouts_cover {
+      display: none;
+    }
+  }
+
+  &.__noLogo {
+    min-height: 20px;
+
+    .layouts_cover_wrap {
+      .layouts_cover_logo {
+        .layouts_cover_image {
+          display: none;
+        }
+
+        .layouts_cover_circles {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  .layouts_cover_wrap {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-color: transparentize($white, 0.0);
+
+    .layouts_cover_logo {
+      width: 80px;
+      height: 80px;
+
+      .layouts_cover_image {
+        padding-bottom: 16px;
+
+        img {
+          display: block;
+          max-height: 80px;
+        }
+      }
+
+      .layouts_cover_circles {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: -4px;
+        padding: 0 8px 0 8px;
+
+        .layouts_cover_circle1, .layouts_cover_circle2, .layouts_cover_circle3 {
+          width: 6px;
+          height: 6px;
+          margin-left: 8px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          & > svg {
+            fill: $colorPrimary;
+          }
+        }
+
+        .layouts_cover_circle1 {
+          animation: layouts_scale 1000ms linear infinite ;
+        }
+
+        .layouts_cover_circle2 {
+          animation: layouts_scale 1000ms linear infinite;
+          animation-delay: 250ms;
+        }
+
+        .layouts_cover_circle3 {
+          animation: layouts_scale 1000ms linear infinite;
+          animation-delay: 500ms;
+        }
+      }
+    }
+
+    .layouts_cover_label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: $colorPrimary;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+@keyframes layouts_scale {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.01);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  90% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>{{htmlWebpackPlugin.options.title}}</title>
+
+  <link rel="shortcut icon" href="/assets/icons/favicon.png">
+
+  <link rel="stylesheet" href="/assets/fonts/font-icomoon/style.css" />
+  <link rel="stylesheet" href="/assets/fonts/font-linearicons/style.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="/assets/css/rc-drawer.css" />
+
+  {{#each htmlWebpackPlugin.files.css}}
+  <link rel="stylesheet" href="{{this}}" />
+  {{/each}}
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  {{#each htmlWebpackPlugin.files.js}}
+  <script crossorigin src="{{this}}"></script>
+  {{/each}}
+</body>
+
+</html>

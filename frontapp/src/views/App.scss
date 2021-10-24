@@ -1,0 +1,8 @@
+@import "~styles/Bootstrap/bootstrap.cleanui";
+@import "~styles/antd/antd";
+@import "~styles/CleanUI/cleanui";
+@import "~styles/common";
+
+.ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
+  background: transparentize($colorPrimary, 0.9) !important;
+}

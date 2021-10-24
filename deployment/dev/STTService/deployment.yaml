@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sttservice
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: sttservice
+    spec:
+      containers:
+      - name: sttservice
+        image: nkrokhmal/sttservice:lk
+        imagePullPolicy: "Always"
+        env:
+        - name: READ_FRAMES
+          value: "100000"
+        envFrom:
+        - configMapRef:
+            name: rabbitmq
+        - configMapRef:
+            name: postgres
+        - configMapRef:
+            name: sftp
+        ports:
+        - containerPort: 55557
+      volumes:
+      - name: data
+        emptyDir: {}
+      imagePullSecrets:
+      - name: regcred

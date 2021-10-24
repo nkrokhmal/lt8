@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: videoservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: videoservice
+    spec:
+      containers:
+      - name: videoservice
+        image: nkrokhmal/videoservice:lk
+        imagePullPolicy: "Always"
+        envFrom:
+        - configMapRef:
+            name: rabbitmq
+        - configMapRef:
+            name: postgres
+        - configMapRef:
+            name: sftp
+        ports:
+        - containerPort: 55555
+          
