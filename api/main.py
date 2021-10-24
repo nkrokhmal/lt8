@@ -8,10 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 class RAPI(FastAPI):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # self.rabbitmq_client = RabbitMQClient()
-        # print("Creating sftp client")
-        # self.sftp_client = SftpClient()
-        # print("Created")
 
 
 app = RAPI()

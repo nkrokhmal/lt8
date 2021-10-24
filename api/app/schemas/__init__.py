@@ -4,4 +4,3 @@ from .conference import *
 from .email import *
 from .rq_messages import *
 from .conference_recognition import *
-from .webhook import *
