@@ -1,26 +1,6 @@
 @import "~styles/_common";
 
 .layouts_header {
-  &.login {
-    background: transparent;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: rem(50);
-
-    @media screen and (max-width: $sm-max-width) {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1000;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      flex-shrink: 0;
-    }
-  }
-
   &.main {
     background: $white;
     padding: 0 0 0 rem(20);
@@ -46,90 +26,8 @@
   }
 }
 
-.layouts_header_languageSelector_menu {
-}
 
 .layouts_header_guide_menu {
   cursor: pointer;
 }
 
-.layouts_header_languageSelector_dropdown {
-  padding-right: 15px;
-  position: relative;
-  cursor: pointer;
-  @include transition-slow;
-
-  &::after {
-    color: $gray;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -2px;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-    @include transition-slow();
-  }
-
-  &:hover {
-    color: $blue;
-
-    &::after {
-      color: $gray-darken;
-    }
-  }
-
-  :global {
-    .anticon {
-      font-size: rem(16) !important;
-    }
-  }
-}
-
-.layouts_header_profile_dropdown {
-  padding-right: 15px;
-  position: relative;
-  cursor: pointer;
-
-  &::after {
-    color: $gray;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -2px;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-    @include transition-slow();
-  }
-
-  &:hover {
-    color: $blue;
-
-    &::after {
-      color: $gray-darken;
-    }
-  }
-}
-
-.layouts_header_profile_avatar {
-  background-color: $gray-border;
-}
-
-.layouts_header_profile_menuIcon {
-  margin-right: rem(5);
-}

@@ -1,27 +1,24 @@
-import { UsersClient } from 'data/clients';
+import { ConferenceClient } from 'data/clients';
 
 
 class DialoguesProvider {
   constructor() {
-    this._usersClient = new UsersClient();
+    this._conferenceClient = new ConferenceClient();
   }
 
-  async getDialogues() {
-    const response = await this._usersClient.getDialoguesList();
-
-    return response.map(dialogue => ({
-      ...dialogue,
-      dialogueId: dialogue.ConferenceId
-    }));
+  getDialogues = async () => {
+    return this._conferenceClient.getDialoguesList();
   }
 
-  getConference = (id) => this._usersClient.getDialogue(id);
+  getConference = (id) => this._conferenceClient.getDialogue(id);
 
-  editSTT = (id, text) => this._usersClient.editSTT(id, text);
+  editSTT = (id, text) => this._conferenceClient.editSTT(id, text);
+
+  downloadAISTT = id => this._conferenceClient.downloadAISTT(id);
+  downloadEditedSTT = id => this._conferenceClient.downloadEditedSTT(id);
 
   cancelRequests() {
-    this._usersClient.cancel();
-    this._analyticContentClient.cancel();
+    this._conferenceClient.cancel();
   }
 }
 

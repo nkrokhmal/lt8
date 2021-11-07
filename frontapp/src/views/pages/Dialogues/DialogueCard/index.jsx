@@ -52,6 +52,16 @@ class DialogueCard extends React.Component {
     }
   }
 
+  downloadAI = async () => {
+    const { id } = this.props.match.params;
+    await this._dialoguesProvider.downloadAISTT(id);
+  }
+
+  downloadEdited = async () => {
+    const { id } = this.props.match.params;
+    await this._dialoguesProvider.downloadEditedSTT(id);
+  }
+
   handleChange = (e) => {
     this.setState({newText: e.target.value});
   }
@@ -92,6 +102,19 @@ class DialogueCard extends React.Component {
                 stt_recognition={data.stt_recognition}
                 date={data.date} />
             }
+            </Layout.Card>}
+          </Col>
+        </Row>
+
+        <Row gutter={[12, 0]}>
+          <Col lg={24}>
+            {data !== null && <Layout.Card title={'Выгрузить расспознанный текст в файл'}>
+              <Button type="primary" onClick={this.downloadAI}>
+                Скачать расспознанный текст
+              </Button> {' '}
+              {<Button onClick={this.downloadEdited} disabled={!data.stt_recognition}>
+                Скачать отредактированный текст
+              </Button>}
             </Layout.Card>}
           </Col>
         </Row>

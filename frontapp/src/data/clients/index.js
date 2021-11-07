@@ -1,8 +1,6 @@
-import AccountClient from './AccountClient';
-import UsersClient from './UsersClient';
+import ConferenceClient from './ConferenceClient';
 
 
 export {
-  AccountClient,
-  UsersClient
+  ConferenceClient
 };

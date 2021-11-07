@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Upload, Button, Alert } from 'antd';
 import { Icon } from 'views/atoms';
 import Layout from 'views/layouts';
-import { connect } from 'react-redux';
 import { message } from 'antd';
 import { DEFAULT_PROTOCOL, DEFAULT_HOST } from 'constants/Network';
 
@@ -20,7 +19,6 @@ class UploadAudio extends React.Component {
 
   render() {
     const { loading, uploaded } = this.state;
-    const { auth } = this.props;
 
     const props = {
       name: 'file',
@@ -30,12 +28,12 @@ class UploadAudio extends React.Component {
         return `${DEFAULT_PROTOCOL}://${DEFAULT_HOST}/conference/${type}/`;
       },
       headers: {
-        authorization: `Bearer ${auth}`,
+        // authorization: `Bearer ${auth}`,
         accept: 'application/json'
       },
       data: {
         conference_in: JSON.stringify({
-          name: 'max test filename',
+          name: 'test filename',
           date: new Date().toISOString()
         })
       },
@@ -79,8 +77,4 @@ class UploadAudio extends React.Component {
   }
 }
 
-const mapStateToProps = (store) => ({
-  auth: store.auth.user.token
-});
-
-export default connect(mapStateToProps)(UploadAudio);
+export default UploadAudio;

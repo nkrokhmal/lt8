@@ -65,7 +65,7 @@ class MenuLeft extends React.Component {
   }
 
   generateMenuItems() {
-    const { elements, account, step } = this.props;
+    const { elements, step } = this.props;
     const generateItem = (item) => {
       const { key, label, url, icon, disabled, pro } = item;
 
@@ -222,11 +222,7 @@ class MenuLeft extends React.Component {
   }
 }
 
-const mapStateToProps = (store) => ({
-  account: store.auth.account
-});
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   toggleMenuOpened: actions.settings.toggleMenuOpened,
   toggleMobileMenu: actions.settings.toggleMobileMenu
 })(MenuLeft);

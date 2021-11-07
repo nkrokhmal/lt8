@@ -2,8 +2,6 @@ import * as React from 'react';
 import { openviduSecret, openviduServerUrl } from 'constants/Network';
 import VideoRoomComponent from '../../../OpenVidu/components/VideoRoomComponent';
 import { LocalStorageProvider } from 'data/providers';
-import { connect } from 'react-redux';
-import { nanoid } from 'nanoid'
 import { notification } from 'antd';
 
 
@@ -48,8 +46,4 @@ class VideoCall extends React.Component {
   }  
 };
 
-const mapStateToProps = (store) => ({
-  auth: store.auth
-});
-
-export default connect(mapStateToProps)(VideoCall);
+export default VideoCall;

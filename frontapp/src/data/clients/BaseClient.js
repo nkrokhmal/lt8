@@ -1,8 +1,6 @@
 import * as Network from 'constants/Network';
-import { LocalStorageProvider } from 'data/providers';
 import axios from 'axios';
 import { message } from 'antd';
-import { cwd } from 'process';
 
 
 class BaseClient {
@@ -29,13 +27,6 @@ class BaseClient {
 
     if (token) {
       this._headers.Authorization = token;
-    } else {
-      this._localStorageProvider = new LocalStorageProvider();
-      const user = this._localStorageProvider.load('apprtcuser');
-
-      if (user) {
-        this._headers.Authorization = `Bearer ${user.token}`;
-      }
     }
 
     this._instance = axios.create({
@@ -67,13 +58,13 @@ class BaseClient {
     } catch (e) {
       console.error(`Can't request data from '${config && config.url}'. Error: ${e.message || e}`);
 
-      if (e.response.status === 403) {        
-        message.error('Авторизация больше не актуальна. Пожалуйста, войдите в систему еще раз.');
-        setTimeout(() => {
-          this._localStorageProvider.remove('apprtcuser');
-          window.document.location.pathname = '/login';
-        }, 1500);
-      }
+      // if (e.response.status === 403) {        
+      //   message.error('Авторизация больше не актуальна. Пожалуйста, войдите в систему еще раз.');
+      //   setTimeout(() => {
+      //     this._localStorageProvider.remove('apprtcuser');
+      //     window.document.location.pathname = '/login';
+      //   }, 1500);
+      // }
 
       return Promise.reject(e);
     }

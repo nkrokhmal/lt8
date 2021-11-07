@@ -7,15 +7,15 @@ const DialoguesTable = ({ dataSource, rowSelection, onChange, page }) => {
   const columns = [{
       align: 'left',
       dataIndex: 'name',
-      defaultSortOrder: 'descend',
-      title: 'Название'
+      title: 'Название',
+      sorter: (a, b) => a.name - b.name
     }, {
       align: 'left',
       dataIndex: 'status',
       key: 'status',
-      defaultSortOrder: 'descend',
       title: 'Статус',
-      render: (status) => status === 'finished' ? 'Обработанный' : 'В процессе'
+      render: (status) => status === 'finished' ? 'Обработанный' : 'В процессе',
+      sorter: (a, b) => a.status - b.status
     }, {
       align: 'center',
       dataIndex: 'date',

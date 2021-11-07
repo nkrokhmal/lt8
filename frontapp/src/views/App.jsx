@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { AccountProvider } from 'data/providers';
 import { BrowserRouter } from 'react-router-dom';
-import Model from 'data/models';
 import PropTypes from 'prop-types';
 import Routes from '../Routes';
 import { actions } from 'storage';
@@ -12,15 +10,13 @@ import './App.scss';
 
 
 const MOBILE_VIEW_WIDTH_MAX = 768;
-const LOAD_ACCOUNT_DELAY = 200;
-const wait = (delay) => new Promise((resolve) => setTimeout(() => resolve(), delay));
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      pending: true
+      pending: false
     };
 
     bindAll(this, ['onResize']);
@@ -28,25 +24,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.onResize();
-    this.load();
 
     window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
-  }
-
-  async load() {
-    this.setState(() => ({ pending: true }));
-
-    this._accountProvider = new AccountProvider();
-    this._accountProvider.loadAccount();
-
-    // Hack: wait several ms for load account data and navigate to selected URL.
-    await wait(LOAD_ACCOUNT_DELAY);
-
-    this.setState(() => ({ pending: false }));
   }
 
   onResize() {
@@ -60,7 +43,6 @@ class App extends React.Component {
   } 
 
   render() {
-    const { account } = this.props;
     const { pending } = this.state;
 
     if (pending) {
@@ -69,26 +51,21 @@ class App extends React.Component {
 
     return (
       <BrowserRouter>
-        <Routes account={account} />
+        <Routes />
       </BrowserRouter>
     );
   }
 }
 
 App.propTypes = {
-  account: PropTypes.instanceOf(Model.Account),
   settings: PropTypes.shape({
     isMobileView: PropTypes.bool.isRequired
   }).isRequired,
   toggleMobileView: PropTypes.func.isRequired,
 };
 
-App.defaultProps = {
-  account: null
-};
 
 const mapStateToProps = (store) => ({
-  account: store.auth.account,
   settings: store.settings
 });
 

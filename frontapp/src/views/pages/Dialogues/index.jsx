@@ -6,7 +6,6 @@ import TableDialogues from 'views/widgets/DialoguesTable';
 import { connect } from 'react-redux';
 import { message } from 'antd';
 import moment from 'moment';
-import styles from './styles.scss';
 
 const currentPage = 'dialogues';
 
@@ -79,13 +78,11 @@ class Dialogues extends React.Component {
     return (
         <Layout.Card title={'Конференции'}>
           <Layout.Cover pending={loading}>
-            <div className={styles.pages_dialogues}>
               <TableDialogues
                 dataSource={list}
                 page={page}
                 onChange={this.onPageChange}
               />
-            </div>
           </Layout.Cover>
         </Layout.Card>
     );
